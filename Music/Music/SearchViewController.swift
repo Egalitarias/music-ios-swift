@@ -175,18 +175,19 @@ class SearchViewController: UIViewController, UISearchBarDelegate, UITableViewDe
             songs.removeAll()
             songsTableView?.reloadData()
         }
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        self.view.endEditing(true)
         
         if getStringUtility().hasValue(string: searchText) {
             artists.removeAll()
             artistsPage = 1
-            searchArtists(artistSearchText: searchText!)
-            searchAlbums(albumSearchText: searchText!)
-            searchSongs(songSearchText: searchText!)
+            searchArtists(artistSearchText: searchText)
+            searchAlbums(albumSearchText: searchText)
+            searchSongs(songSearchText: searchText)
         }
+
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        self.view.endEditing(true)
     }
 
     // MARK: - UITableViewDataSource
